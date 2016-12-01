@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	<bean id="beanA" class="com.fuzw.study.spring.bean.BeanA" depends-on="beanH">
+    </bean>
+    
+	<bean id="beanB" class="com.fuzw.study.spring.bean.BeanB">
+    </bean>
+    
+    <alias name="beanB" alias="beanB1"/>
+    
+    <alias name="beanB1" alias="beanB2"/>
+    
+    
+    <bean id="beanC" class="com.fuzw.study.spring.bean.BeanB$BeanC">
+    </bean>
+    
+    <bean id="beanC1" class="com.fuzw.study.spring.bean.BeanB$BeanC">
+    </bean>
+    
+    <bean id="beanD" class="com.fuzw.study.spring.bean.StaticFactoryMethod" factory-method="getBeanD" lazy-init="true"/>
+    
+    <bean id="instancefactorymethod" class="com.fuzw.study.spring.bean.InstanceFactoryMethod"/>
+    
+    <bean id="beanE" factory-bean="instancefactorymethod" factory-method="getBeanE"/>
+    
+    <bean id="beanF" class="com.fuzw.study.spring.bean.BeanF">
+		<constructor-arg name="b">
+			<bean class="com.fuzw.study.spring.bean.BeanB"/>
+    	</constructor-arg>
+    	<constructor-arg name="a" ref="beanA"/>
+    </bean>
+    
+    <bean id="beanF1" class="com.fuzw.study.spring.bean.StaticFactoryMethod2" factory-method="getBeanF" autowire="constructor">
+    	<!-- <constructor-arg name="beanB" ref="beanB"/>
+    	<constructor-arg name="beanA" ref="beanA"/> -->
+    </bean>
+    
+    <bean id="beanF2" factory-bean="instancefactorymethod" factory-method="getBeanF">
+    	<constructor-arg name="beanB" ref="beanB"/>
+    	<constructor-arg name="beanA">
+    		<bean class="com.fuzw.study.spring.bean.BeanA"/>
+    	</constructor-arg>
+    </bean>
+    
+    <bean id="beanG" class="com.fuzw.study.spring.bean.BeanG" autowire="byType">
+		<!-- <property name="beanH" ref="beanH"/> -->
+    </bean>
+    
+    <bean id="beanH" class="com.fuzw.study.spring.bean.BeanH">
+		<property name="beanG" ref="beanG"/>
+    </bean>
+	
+</beans>

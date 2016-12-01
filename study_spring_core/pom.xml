@@ -2,12 +2,34 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.fuzw.study</groupId>
-  <artifactId>spring_core</artifactId>
+  <artifactId>study_spring_core</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>study_spring_core</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+  		<spring.version>4.3.4.RELEASE</spring.version>
+  </properties>
+  
   <dependencies>
-   
+        <!-- spring相关 -->
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
   </dependencies>
+  
+  
 </project>
