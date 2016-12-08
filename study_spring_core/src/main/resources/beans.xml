@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
     
 	<bean id="beanA" class="com.fuzw.study.spring.bean.BeanA" depends-on="beanH">
     </bean>
@@ -51,6 +55,26 @@
     
     <bean id="beanH" class="com.fuzw.study.spring.bean.BeanH">
 		<property name="beanG" ref="beanG"/>
+    </bean>
+    
+    <bean id="beanI" class="com.fuzw.study.spring.bean.BeanI" scope="prototype">
+    </bean>
+    
+    <bean id="beanJ" class="com.fuzw.study.spring.bean.BeanJ">
+		<lookup-method name="getBeanI" bean="beanI"/>
+	</bean>
+	
+	<bean id="beanL" class="com.fuzw.study.spring.bean.BeanL" scope="prototype" init-method="afterPropertiesSet2" destroy-method="destroy2">
+		<aop:scoped-proxy/>
+    </bean>
+    
+    <bean id="beanM" class="com.fuzw.study.spring.bean.BeanM" autowire="byName" init-method="afterPropertiesSet2" destroy-method="destroy2">
+    </bean>
+    
+     <bean id="oneBeanPostProcessor" class="com.fuzw.study.spring.bean.OneBeanPostProcessor">
+    </bean>
+    
+    <bean id="beanN" class="com.fuzw.study.spring.bean.BeanNFactoryBean">
     </bean>
 	
 </beans>

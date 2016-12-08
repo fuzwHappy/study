@@ -1,6 +1,5 @@
 package com.fuzw.study.spring.container;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fuzw.study.spring.bean.BeanA;
@@ -11,11 +10,14 @@ import com.fuzw.study.spring.bean.BeanE;
 import com.fuzw.study.spring.bean.BeanF;
 import com.fuzw.study.spring.bean.BeanG;
 import com.fuzw.study.spring.bean.BeanH;
+import com.fuzw.study.spring.bean.BeanJ;
+import com.fuzw.study.spring.bean.BeanM;
+import com.fuzw.study.spring.bean.BeanN;
 
 public class StudyContainer {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
 		
 		BeanA a = (BeanA) context.getBean("beanA");
 		a.say();
@@ -63,6 +65,34 @@ public class StudyContainer {
 		
 		BeanH h = context.getBean(BeanH.class);
 		h.say();
+		
+		BeanJ j = context.getBean(BeanJ.class);
+		j.say();
+		j.say();
+		
+		BeanJ j1 = context.getBean(BeanJ.class);
+		j1.say();
+		j1.say();
+		
+		
+		BeanM m = context.getBean(BeanM.class);
+		m.say();
+		m.say();
+		m.say();
+		
+
+		BeanN n = (BeanN) context.getBean("beanN");
+		n.say();
+		
+		BeanN n2 = context.getBean(BeanN.class);
+		n2.say();
+		
+		Object obj = context.getBean("&beanN");
+		System.out.println("context.getBean(\"&beanN\"): " + obj.toString());
+		
+		System.out.println("context.close() ");
+		context.close();
+		
 	}
 
 }
