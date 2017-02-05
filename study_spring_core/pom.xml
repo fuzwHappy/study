@@ -35,6 +35,64 @@
 		    <version>${spring.version}</version>
 		</dependency>
   </dependencies>
+
+  <repositories>
+		<repository>
+			<id>ibg_group</id>
+			<url>http://maven.letv.cn/nexus/content/repositories/ibg_group</url>
+		</repository>
+		<repository>
+			<id>public</id>
+			<url>http://maven.letv.cn/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>thirdparty</id>
+			<url>http://maven.letv.cn/nexus/content/repositories/thirdparty</url>
+		</repository>
+		<repository>
+			<id>releases</id>
+			<url>http://maven.letv.cn/nexus/content/repositories/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<url>http://maven.letv.cn/nexus/content/repositories/snapshots</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>oschina</id>
+			<name>Maven of oschina.net letv proxy</name>
+			<url>http://maven.letv.cn/nexus/content/repositories/oschina-public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>libs-milestone</id>
+			<url>http://maven.letv.cn/nexus/content/repositories/libs-milestone/</url>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
   
   
 </project>
