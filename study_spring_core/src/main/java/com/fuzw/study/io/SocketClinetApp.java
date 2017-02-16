@@ -13,7 +13,7 @@ public class SocketClinetApp {
 			client.connect(new InetSocketAddress("127.0.0.1", 9999));
 			ByteBuffer buffer = ByteBuffer.allocate(2);
 			while (true) {
-				char c = 'A';
+				char c = 'B';
 				buffer.put((byte) c);
 				buffer.flip();
 				while(buffer.hasRemaining()){

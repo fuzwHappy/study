@@ -14,13 +14,13 @@ public class ServerSocketChannelApp {
 			serverSocketChannel.socket().bind(new InetSocketAddress(9999));
 			while (true) {
 				SocketChannel socketChannel = serverSocketChannel.accept();
-				ByteBuffer buffer = ByteBuffer.allocate(512);
+				ByteBuffer buffer = ByteBuffer.allocate(6);
 				int read = socketChannel.read(buffer);
 				while (read != -1) {
 					buffer.flip();
 					while (buffer.hasRemaining()) {
-						char c = buffer.getChar();
-						System.out.println(c);
+						byte c = buffer.get();
+						System.out.println((char)c);
 					}
 					buffer.clear();
 					read = socketChannel.read(buffer);
