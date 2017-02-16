@@ -11,16 +11,17 @@ public class SocketClinetApp {
 		try {
 			SocketChannel client = SocketChannel.open();
 			client.connect(new InetSocketAddress("127.0.0.1", 9999));
+//			client.configureBlocking(false);
 			ByteBuffer buffer = ByteBuffer.allocate(2);
 			while (true) {
-				char c = 'B';
+				char c = 'A';
 				buffer.put((byte) c);
 				buffer.flip();
 				while(buffer.hasRemaining()){
 					client.write(buffer);		
 				}
 				buffer.clear();
-				Thread.sleep(10);
+				Thread.sleep(50);
 			}
 
 		} catch (IOException e) {
