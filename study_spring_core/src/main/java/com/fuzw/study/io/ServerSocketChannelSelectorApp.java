@@ -3,7 +3,6 @@ package com.fuzw.study.io;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.Channel;
 import java.nio.channels.SelectableChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -27,8 +26,8 @@ public class ServerSocketChannelSelectorApp {
 				int ready = selector.selectNow();
 				if (ready == 0)
 					continue;
-				Set keys = selector.selectedKeys();
-				Iterator it = keys.iterator();
+				Set<SelectionKey> keys = selector.selectedKeys();
+				Iterator<SelectionKey> it = keys.iterator();
 				while (it.hasNext()) {
 					SelectionKey key = (SelectionKey) it.next();
 					if (key.isAcceptable()) {

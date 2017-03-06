@@ -21,7 +21,7 @@ public class SocketClinetApp {
 					client.write(buffer);		
 				}
 				buffer.clear();
-				Thread.sleep(50);
+				Thread.sleep(5000);
 			}
 
 		} catch (IOException e) {
