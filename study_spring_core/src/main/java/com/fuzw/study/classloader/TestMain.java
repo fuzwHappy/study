@@ -6,6 +6,23 @@ public class TestMain {
 		
 		try {
 			
+			
+//			byte a = 2;
+//			byte b = 1;
+//			byte c = a + b;
+//			
+//			char d = 12;
+//			char e = 1;
+//			char f = d + e;
+//			
+//			short s1 = 1;
+//			short s2 = 2;
+//			short s3 = s1 + s2;
+			
+			int i = 0, j = 0;
+			int c = 1==2 ? i++ : j++;
+			
+			
 			ClassLoader p1 = new ClassLoaderP();
 			
 			ClassLoader p2 = new ClassLoaderP();
@@ -39,6 +56,7 @@ public class TestMain {
 			System.out.println(sobj.getClass().getClassLoader());
 			
 			System.out.println(sobj.say());
+
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

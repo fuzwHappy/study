@@ -13,8 +13,9 @@ import com.fuzw.study.spring.bean.BeanH;
 import com.fuzw.study.spring.bean.BeanJ;
 import com.fuzw.study.spring.bean.BeanM;
 import com.fuzw.study.spring.bean.BeanN;
+import com.fuzw.study.spring.bean.BeanO;
 
-public class StudyContainer {
+public class StudyXmlContainer {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
@@ -89,6 +90,10 @@ public class StudyContainer {
 		
 		Object obj = context.getBean("&beanN");
 		System.out.println("context.getBean(\"&beanN\"): " + obj.toString());
+		
+		BeanO ao = context.getBean(BeanO.class);
+		ao.say();
+		
 		
 		System.out.println("context.close() ");
 		context.close();

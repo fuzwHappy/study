@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop 
-       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
     
 	<bean id="beanA" class="com.fuzw.study.spring.bean.BeanA" depends-on="beanH">
     </bean>
@@ -68,7 +71,10 @@
 		<aop:scoped-proxy/>
     </bean>
     
-    <bean id="beanM" class="com.fuzw.study.spring.bean.BeanM" autowire="byName" init-method="afterPropertiesSet2" destroy-method="destroy2">
+    <bean id="beanL1" class="com.fuzw.study.spring.bean.BeanL" primary="true">
+    </bean>
+    
+    <bean id="beanM" class="com.fuzw.study.spring.bean.BeanM" init-method="afterPropertiesSet2" destroy-method="destroy2">
     </bean>
     
      <bean id="oneBeanPostProcessor" class="com.fuzw.study.spring.bean.OneBeanPostProcessor">
@@ -76,5 +82,13 @@
     
     <bean id="beanN" class="com.fuzw.study.spring.bean.BeanNFactoryBean">
     </bean>
+	
+	<bean id="beanO" class="com.fuzw.study.spring.bean.BeanO">
+    </bean>
+	
+	
+	<context:annotation-config/>
+	
+	<context:component-scan base-package="com.fuzw.study.spring.bean.annotation"/>
 	
 </beans>
