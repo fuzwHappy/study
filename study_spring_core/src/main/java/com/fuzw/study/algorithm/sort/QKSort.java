@@ -18,7 +18,7 @@ public class QKSort {
 		sort(data, midIndex + 1, end);
 	}
 
-	private int midIndex(int[] data, int start, int end) {
+	private int midIndex2(int[] data, int start, int end) {
 		int left = start, half = start, right = end;
 		while (left < right) {
 			while (left < right) {
@@ -50,6 +50,23 @@ public class QKSort {
 		}
 		return half;
 	}
+	
+	
+	private int midIndex(int[] data, int start, int end) {
+		int left = start, right = start + 1;
+		int mid = data[start];
+		while(end >= right){
+			if(data[right] > mid){
+				right ++;
+			}else{
+				swap(data, left + 1, right);
+				swap(data, left, left + 1);
+				left++;
+				right++;
+			}
+		}
+		return left;
+	}
 
 	private void swap(int[] data, int l, int r) {
 		int temp = data[l];
@@ -58,12 +75,12 @@ public class QKSort {
 	}
 
 	public static void main(String args[]) {
-		// int data[] = { 9, 8, 5, 3, 2, 6, 4, 8, 7, 1, 6 , 4, 4, 1, 3, 1 };
+		int data[] = { 9, 8, 5, 3, 2, 6, 4, 8, 7, 1, 6 , 4, 4, 1, 3, 1 };
 		//int data[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	    //int data[] = { 8, 7, 6, 5, 4, 3, 2, 1};
 	    //int data[] = {};
 	    //int data[] = {1};
-	    int data[] = {1, 2};
+	    //int data[] = {1, 2};
 		data = new QKSort().sort(data);
 		for (int item : data) {
 			System.out.print(item + " ");
