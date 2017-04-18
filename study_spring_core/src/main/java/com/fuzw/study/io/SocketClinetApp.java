@@ -10,7 +10,7 @@ public class SocketClinetApp {
 	public static void main(String[] args) {
 		try {
 			SocketChannel client = SocketChannel.open();
-			client.connect(new InetSocketAddress("127.0.0.1", 9999));
+			client.connect(new InetSocketAddress("127.0.0.1", 9998));
 //			client.configureBlocking(false);
 			ByteBuffer buffer = ByteBuffer.allocate(2);
 			while (true) {

@@ -11,7 +11,6 @@ public class MergeSort {
 		if (start >= end) {
 			return;
 		}
-
 		int mid = (end + start) / 2;
 		mergeSort(data, start, mid);
 		mergeSort(data, mid + 1, end);
@@ -31,17 +30,17 @@ public class MergeSort {
 				right++;
 			}
 		}
-		if (left > mid) {
-			while (right <= end) {
-				temp[i++] = data[right];
-				right++;
-			}
-		} else {
-			while (left <= mid) {
-				temp[i++] = data[left];
-				left++;
-			}
+
+		while (left <= mid) {
+			temp[i++] = data[left];
+			left++;
 		}
+
+		while (right <= end) {
+			temp[i++] = data[right];
+			right++;
+		}
+
 		int s = start;
 		for (int item : temp) {
 			data[s++] = item;
@@ -64,11 +63,10 @@ public class MergeSort {
 			}
 		}
 
-		if (i < temp.length) {
-			while (i < temp.length) {
-				data[left++] = temp[i++];
-			}
+		while (i < temp.length) {
+			data[left++] = temp[i++];
 		}
+
 	}
 
 	public static void main(String args[]) {

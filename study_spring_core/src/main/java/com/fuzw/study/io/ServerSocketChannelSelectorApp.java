@@ -17,7 +17,7 @@ public class ServerSocketChannelSelectorApp {
 		try {
 			Selector selector = Selector.open();
 			ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
-			serverSocketChannel.socket().bind(new InetSocketAddress(9999));
+			serverSocketChannel.socket().bind(new InetSocketAddress(9998));
 			serverSocketChannel.configureBlocking(false);
 			int interest = SelectionKey.OP_ACCEPT;
 			serverSocketChannel.register(selector, interest);
